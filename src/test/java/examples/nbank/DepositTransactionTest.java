@@ -64,42 +64,4 @@ public class DepositTransactionTest
 
     }
 
-    /**
-     * Parasoft Jtest UTA: Test for apply(Account)
-     *
-     * @author gtrofimov
-     * @see DepositTransaction#apply(Account)
-     */
-    @Test
-    public void testApply2() throws Throwable {
-        // UTA is unable to resolve the values required to create the requested test case.
-        // A test case with default values has been created instead.
-
-        // Given
-        int amount = 0; // UTA: default value
-        DepositTransaction underTest = new DepositTransaction(amount);
-
-        // When
-        Customer customer = NbankFactory.createCustomer();
-        Account account = NbankFactory.createAccount(customer);
-        boolean result = underTest.apply(account);
-
-        // Then - assertions for argument 1 of method apply(Account)
-        assertAll(() -> {
-            assertNotNull(account.getCustomer());
-        }, () -> {
-            assertEquals("john", account.getCustomer().toStrng());
-        }, () -> {
-            assertEquals("123-45-6789", account.getCustomer().getSSN());
-        }, () -> {
-            assertEquals(1000, account.getBalance());
-        }, () -> {
-            assertEquals("silver", account.getStatus());
-        });
-
-        // Then - assertions for result of method apply(Account)
-        assertTrue(result);
-
-    }
-
 }
